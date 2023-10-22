@@ -1,0 +1,31 @@
+{
+    "name": "face-recognition-app-server",
+    "version": "1.0.0",
+    "description": "Recognizing faces in an image",
+    "main": "server.js",
+    "scripts": {
+        "start": "PORT=5001 node server.js",
+        "server": "nodemon server"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/murali-madhunala/face-recognition-app.git"
+    },
+    "author": "Murali Krishna",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/murali-madhunala/face-recognition-app/issues"
+    },
+    "homepage": "https://github.com/murali-madhunala/face-recognition-app/blob/main/README.md",
+    "dependencies": {
+        "config": "^3.3.9",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "express-validator": "^6.3.1",
+        "@tensorflow/tfjs-node": "^4.9.0",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.2"
+    }
+}
