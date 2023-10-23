@@ -15,7 +15,7 @@ router.post('/', [
     if(!username){
         return res.status(400).send({ message: "Please provide a username" })
     }
-    GlobalUserData[username] = {}
+    if(!GlobalUserData[username]) GlobalUserData[username] = {}
 
     try {
         const payload = {
