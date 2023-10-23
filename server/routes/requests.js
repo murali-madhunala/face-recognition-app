@@ -21,6 +21,27 @@ router.get('/', [auth], async(req,res) => {
     res.status(200).json({data: output_json})
 })
 
+router.get('/admin', [auth], async(req,res) => {
+
+    if(req.username && req.username != 'admin'){
+        return res.status(403).send({message: "Forbidden"})
+    }
+
+    output_json = []
+    Object.keys(GlobalUserData).forEach(username => {
+        Object.keys(GlobalUserData[username]).forEach(key => {
+            output_json.push({
+                username: username,
+                imagePath: GlobalUserData[username][key]['imagePath'],
+                facesCount: GlobalUserData[username][key]['facesCount'],
+                annotation: GlobalUserData[username][key]['annotation']
+            })
+        })
+    })
+
+    res.status(200).json({data: output_json})
+})
+
 router.post('/upload', [auth], async (req,res) => {
 
     if (!req.files || Object.keys(req.files).length === 0) {

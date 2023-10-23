@@ -4,7 +4,7 @@ const config = require('config')
 module.exports = function(req, res, next) {
     const token = req.header('x-auth-token')
     if(!token) {
-        res.status(401).json({ msg: 'No Token provided, authorization denied' })
+        return res.status(401).json({ msg: 'No Token provided, authorization denied' })
     }
     try {
         const decoded = jwt.verify(token, config.get('jwtSecret'))
@@ -12,6 +12,6 @@ module.exports = function(req, res, next) {
         req.username = decoded.username
         next()
     } catch(err) {
-        res.status(500).json({ msg: 'Token is not valid' })
+        return res.status(500).json({ msg: 'Token is not valid' })
     }
 }

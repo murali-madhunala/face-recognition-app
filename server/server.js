@@ -1,14 +1,16 @@
 const express = require('express')
 var cors = require('cors')
+const expressUploader = require("express-fileupload")
 const app = express()
 
 app.use(cors());
 
 // Init middlewares
 app.use(express.json({ extended: false }))
+app.use(expressUploader({createParentPath: true}))
+app.use('/static', express.static('uploads'))
 
 global.GlobalUserData = {}
-
 // Define routes
 app.get('/', (req, res) => res.send('API Running'))
 app.use('/api/generateToken', require('./routes/generateToken'))
