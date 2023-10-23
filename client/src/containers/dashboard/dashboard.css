@@ -18,6 +18,8 @@
     border-radius: 10px;
     background: lightgray;
     padding: 20px;
+    /* width: 120px;
+    height: 120px; */
     align-items: center;
     margin: 10px;
 }
@@ -51,3 +53,6 @@ table {
     padding: 8px;
   }
   
+  /* tr:nth-child(even) {
+    background-color: #dddddd;
+  } */

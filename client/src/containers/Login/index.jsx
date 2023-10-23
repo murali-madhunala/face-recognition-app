@@ -28,7 +28,7 @@ export const Login = () => {
     console.log(isAuthenticated, localStorage?.getItem("token"));
 
     if (isAuthenticatedCheck) {
-      navigate("/dashboard");
+      navigate("/dashboard", { state: username });
     }
   }, [isAuthenticated, navigate]);
 

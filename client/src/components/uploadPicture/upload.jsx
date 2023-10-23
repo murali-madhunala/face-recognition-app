@@ -1,5 +1,5 @@
 import { Modal } from '../dialog/dialog';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './upload.css';
 
 export const UploadFile = ({ handleImageUpload, toggleModal , closeDialog}) => {
