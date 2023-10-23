@@ -3,6 +3,23 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 const path = require('path');
 const uuid = require('uuid')
+const faceApiService = require('../faceApiService')
+
+router.get('/', [auth], async(req,res) => {
+    if(!GlobalUserData[req.username]) return res.status(200).json({data: []})
+
+    output_json = []
+
+    Object.keys(GlobalUserData[req.username]).forEach(key => {
+        output_json.push({
+            imagePath: GlobalUserData[req.username][key]['imagePath'],
+            facesCount: GlobalUserData[req.username][key]['facesCount'],
+            annotation: GlobalUserData[req.username][key]['annotation']
+        })
+    })
+
+    res.status(200).json({data: output_json})
+})
 
 router.post('/upload', [auth], async (req,res) => {
 
@@ -41,7 +58,7 @@ router.post('/upload', [auth], async (req,res) => {
         res
         .status(403)
         .contentType("text/plain")
-        .end("Only .png files are allowed!");
+        .end("Only .png/.jpg/.jpeg files are allowed!");
     }
 })
 
