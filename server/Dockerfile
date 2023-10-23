@@ -5,7 +5,6 @@ RUN apt-get install -y build-essential libcairo2-dev libpango1.0-dev libjpeg-dev
 WORKDIR /server
 COPY . .
 
-
 RUN npm install
 RUN npm rebuild @tensorflow/tfjs-node --build-from-source
 
