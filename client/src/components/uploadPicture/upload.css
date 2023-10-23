@@ -1,0 +1,29 @@
+.dialog-container {
+    display: flex;
+    justify-content: center;
+    padding: "20px";
+    min-height: "500px";
+    min-width: "900px";
+}
+h1 {
+    text-align: center;
+}
+.textfield {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h5 {
+    margin-right: 30px;
+}
+.uploadInput {
+    display: flex;
+    justify-content: center;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+.uploadButton {
+    margin-right: 30px;
+}
