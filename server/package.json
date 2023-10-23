@@ -5,7 +5,8 @@
     "main": "server.js",
     "scripts": {
         "start": "PORT=5001 node server.js",
-        "server": "nodemon server"
+        "server": "nodemon server",
+        "test": "jest --forceExit --no-cache --watchAll --detectOpenHandles"
     },
     "repository": {
         "type": "git",
@@ -30,7 +31,15 @@
         "request": "^2.88.0",
         "uuid": "^9.0.1"
     },
+    "jest": {
+        "testEnvironment": "node",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    },
     "devDependencies": {
-        "nodemon": "^2.0.2"
+        "jest": "^29.7.0",
+        "nodemon": "^2.0.2",
+        "supertest": "^6.3.3"
     }
 }
