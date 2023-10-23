@@ -12,6 +12,7 @@ global.GlobalUserData = {}
 // Define routes
 app.get('/', (req, res) => res.send('API Running'))
 app.use('/api/generateToken', require('./routes/generateToken'))
+app.use('/api/requests', require('./routes/requests'))
 
 
 const PORT = process.env.PORT || 5001
